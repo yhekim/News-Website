@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+* {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Merriweather', serif;
+}
+
+body {
+    width: 100%;
+    background-color: rgb(209, 201, 201);
+    display: grid;
+    /*sözel yapı ile yapıyoruz*/
+    grid-template-areas: "header" "content" "footer";
+    height: auto;
+    grid-template-rows: 100px 1fr auto;
+    grid-template-columns: 1fr;
+}
+
+#header {
+    grid-area: header;
+    background: url(../images/logo.png) no-repeat 3vw center top #fff;
+    background-size: 35%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    top: 0;
+    z-index: 99;
+}
+
+#header .social {
+    border: none;
+    margin-right: 10rem;
+    background-color: #fff;
+    display: none;
+}
+
+#header .menu {
+    border: none;
+    background-color: #fff;
+    margin-right: 4rem;
+}
+
+#header .menu>ul {
+    display: flex;
+    align-items: center;
+}
+
+#header .menu>ul>li {
+    -ms-wrap-margin: 0;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.7rem;
+    border-radius: 5px;
+}
+
+#header .menu>ul>li:hover {
+    -webkit-transform: scale(1.08);
+}
+
+#header .menu>ul>li a {
+    color: #fff;
+}
+
+
+/* #header .menu>ul>li a:hover {
+    color: black;
+} */
+
+#header .menu>ul li:nth-child(odd) {
+    background-color: rgb(199, 17, 17);
+}
+
+#header .menu>ul li:nth-child(even) {
+    background-color: gray
+}
+
+#header .social>a {
+    color: gray;
+    margin: 0.5rem;
+}
+
+#content {
+    grid-area: content;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+#footer {
+    grid-area: footer;
+    display: grid;
+}
+
+.article {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 50px repeat(5, auto);
+    grid-gap: 1rem;
+    margin-left: 3vw;
+    margin-right: 3vw;
+}
+
+.article>div {
+    border: none;
+    background-color: white;
+    box-shadow: 0 0 5px black;
+    display: flex;
+    flex-direction: column;
+}
+
+.article>div:nth-child(1) {
+    /* bu 1 inci çoçuğu 3 yerlik alana koy demek */
+    grid-column: 1/span 1;
+}
+
+.article>div:nth-child(2) {
+    /* bu 2 inci çoçuğu 2 yerlik alana koy demek */
+    grid-column: 1/span 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0 10px 10px 0;
+}
+
+.article>div:nth-child(3) {
+    background-color: yellow;
+    opacity: 0.8;
+    border-radius: 10px 0 0 10px;
+}
+
+.article>div:nth-child(4) {
+    border-radius: 0 10px 10px 0;
+}
+
+.article>div:nth-child(5) {
+    border-radius: 10px 10px 10px 10px;
+}
+
+.article>div:nth-child(6) {
+    border-radius: 10px 0 0 10px;
+}
+
+.article>div:nth-child(7) {
+    background-color: rgb(180, 29, 29);
+    border-radius: 0 10px 10px 0;
+}
+
+.article>div:last-child {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px 0 0 10px;
+}
+
+.article .contentBaslik {
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.article .contentBaslik h2 {
+    font-size: 1.3rem;
+    color: black;
+    padding: 0 2rem;
+    text-transform: capitalize;
+}
+
+.article .contentBox .boxKapsayici {
+    border: none;
+    margin: 1rem;
+}
+
+.article .contentBox h5.eglenceBaslik {
+    background-color: orchid;
+}
+
+.article .contentBox h5.sporBaslik {
+    background-color: greenyellow;
+}
+
+.article .contentBox h5.teknoBaslik {
+    background-color: rgb(15, 15, 102);
+}
+
+.article .contentBox h5 {
+    display: block;
+    color: gray;
+    width: 5rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 7px;
+    text-align: center;
+}
+
+.article .contentBox h3 {
+    font-size: 1.4rem;
+    margin: 1rem 0.5rem;
+}
+
+.article .contentBox p {
+    font-size: 0.9rem;
+    margin: 0 0.25rem;
+}
+
+.article .contentBox img {
+    height: 230px;
+    margin: 1rem;
+    border-radius: 0.8rem;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 0.7rem;
+}
+
+.intoKapsayici {
+    flex: 0 0 90%;
+    margin: 2rem 6vw;
+    z-index: 5;
+}
+
+
+/*burada kullanacağımız yapı şundan önce bunu göster dmek içindir*/
+
+.intro:before {
+    content: "";
+    background: url(../images/featured.jpg) no-repeat center center/cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+}
+
+.intoKapsayici h5 {
+    display: block;
+    background-color: orange;
+    width: 140px;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #fff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 1rem 0;
+}
+
+.intoKapsayici h5:hover {
+    cursor: pointer;
+    -webkit-transform: scale(1.03);
+}
+
+.intoKapsayici h3 {
+    font-size: 2rem;
+    color: blue;
+    font-weight: bolder;
+    margin-bottom: 0.6rem;
+    text-align: center;
+}
+
+.intoKapsayici p {
+    color: red;
+    font-size: 1.5rem;
+}
+
+.intoKapsayici a.btn {
+    display: block;
+    width: 7rem;
+    background-color: blue;
+    opacity: 0.8;
+    color: #fff;
+    text-align: center;
+    border-radius: 7px;
+    font-size: 1rem;
+    padding: 1rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.intoKapsayici a.btn:hover {
+    -webkit-transform: scale(1.07);
+}
+
+#footerBoss {
+    width: 100%;
+    margin-top: 2rem;
+    background-color: rgb(44, 39, 39);
+    height: auto;
+}
+
+#footer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto) 50px;
+    margin: 1rem 6vw 0 6vw;
+    grid-gap: 3rem;
+}
+
+.footerBox {
+    padding-left: 1rem;
+}
+
+#footer .footerBox img {
+    width: 80%;
+    margin-bottom: 1rem;
+}
+
+#footer .footerBox p {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+#footer .footerBox h3 {
+    margin-bottom: 1rem;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+#footer .footerBox #iletisimFormu {
+    display: flex;
+    flex-direction: column;
+}
+
+#footer .footerBox #iletisimFormu input#emailBox {
+    padding: 0.6rem;
+    font-size: 1rem;
+    color: gray;
+    border-radius: 10px;
+}
+
+#footer .footerBox #iletisimFormu input#emailBox:focus {
+    outline: none;
+}
+
+#footer .footerBox #iletisimFormu button#gonderBtn {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    background-color: purple;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#footer .footerBox #iletisimFormu button#gonderBtn:hover {
+    background-color: red;
+}
+
+#footer .footerBox ul li {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-top: 0.2rem;
+    border-bottom: thin dotted wheat;
+    padding: 0.1rem;
+}
+
+#footer .footerBox a.uyeBtn {
+    display: block;
+    width: 5rem;
+    padding: 0.6rem;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: yellow;
+    font-weight: bold;
+}
+
+#footer .footerBox a.uyeBtn:hover {
+    background-color: red;
+}
+
+#footer .footerBoxCopyright {
+    grid-column: 1/span 1;
+    background-color: gray;
+    opacity: 0.8;
+    border: 5px;
+    padding: 0.8rem;
+    opacity: 0.6;
+    border: 1px solid gray;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+#footer .footerBoxCopyright h6 {
+    color: #fff;
+    font-weight: bolder;
+    font-size: 1.2rem;
+}
